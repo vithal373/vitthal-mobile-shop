@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vitthal Mobile Shop | Multibrand Mobile Showroom</title>
+  
+  <!-- Google Fonts (Poppins & Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="shop-brand" onclick="switchTab('home')">
+        <div class="brand-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+        <div class="brand-text">
+          <span class="brand-name">Vitthal Mobile</span>
+          <span class="brand-tag">Shop & Exchange</span>
+        </div>
+      </div>
+
+      <!-- Tab Switch Buttons -->
+      <nav class="nav-tabs">
+        <button id="tab-home" class="nav-btn active" onclick="switchTab('home')">
+          <i class="fa-solid fa-house"></i> <span>Home</span>
+        </button>
+        <button id="tab-store" class="nav-btn" onclick="switchTab('store')">
+          <i class="fa-solid fa-mobile-retro"></i> <span>Second Hand Store</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="main-content">
+
+    <!-- 1. HOME SECTION -->
+    <section id="section-home" class="view-section active">
+      
+      <!-- Hero Banner -->
+      <div class="hero-banner">
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+          <span class="hero-badge"><i class="fa-solid fa-award"></i> 100% Trusted Second-Hand & New Mobiles</span>
+          <h1 class="hero-title">Vitthal Mobile Shop</h1>
+          <p class="hero-subtitle">Multibrand Mobile Showroom | Best Deals on Second Hand & Exchange</p>
+          
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="switchTab('store')">
+              <i class="fa-solid fa-store"></i> Second Hand स्टॉक पहा
+            </button>
+            <a href="tel:09766504949" class="btn btn-secondary">
+              <i class="fa-solid fa-phone"></i> कॉल करा
+            </a>
+          </div>
+
+          <div class="brand-strip">
+            <span>Apple</span>
+            <span>Samsung</span>
+            <span>Vivo</span>
+            <span>Oppo</span>
+            <span>Motorola</span>
+            <span>OnePlus</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- About Section -->
+      <div class="section-container about-section">
+        <div class="section-header">
+          <h2 class="section-title">आमच्याबद्दल (About Us)</h2>
+          <p class="section-desc">नेवासा परिसरातील सर्वात खात्रीशीर आणि विश्वासू मोबाईल शोरूम</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-handshake-simple"></i></div>
+            <h3>Best Exchange Value</h3>
+            <p>तुमचा जुना मोबाईल द्या आणि चालू बाजारातील सर्वोत्तम किमतीत दुसरा मोबाईल घेऊन जा.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-shield-check"></i></div>
+            <h3>Quality Tested</h3>
+            <p>प्रत्येक सेकंड-हँड मोबाईल 30+ पॉईंट्सवर तपासून, पूर्ण टेस्टिंग नंतरच विक्रीसाठी ठेवला जातो.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-tags"></i></div>
+            <h3>Multibrand Options</h3>
+            <p>Apple iPhone, Samsung, Vivo, Oppo, OnePlus आणि Motorola चे सर्वोत्तम बजेट मॉडेल्स उपलब्ध.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact & Location Section -->
+      <div class="section-container contact-section">
+        <div class="section-header">
+          <h2 class="section-title">संपर्क आणि पत्ता</h2>
+          <p class="section-desc">आजच आमच्या दुकानाला भेट द्या किंवा थेट संपर्क करा</p>
+        </div>
+
+        <div class="contact-layout">
+          <!-- Info Box -->
+          <div class="contact-card">
+            <div class="contact-item">
+              <div class="item-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <h4>दुकनाचा पत्ता:</h4>
+                <p>Nipunge Wasti, Mukindapur, Newasa, Maharashtra 414603</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="item-icon"><i class="fa-solid fa-phone-volume"></i></div>
+              <div>
+                <h4>फोन नंबर:</h4>
+                <p><a href="tel:09766504949">+91 097665 04949</a></p>
+              </div>
+            </div>
+
+            <div class="contact-actions">
+              <a href="tel:09766504949" class="btn btn-call">
+                <i class="fa-solid fa-phone"></i> Call Now
+              </a>
+              <a href="https://wa.me/919766504949?text=नमस्कार,%20मला%20मोबाईल%20बद्दल%20चौकशी%20करायची%20आहे." target="_blank" class="btn btn-whatsapp-card">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="https://instagram.com/vitthal_exchange_mobile" target="_blank" class="btn btn-insta">
+                <i class="fa-brands fa-instagram"></i> Instagram
+              </a>
+            </div>
+          </div>
+
+          <!-- Google Maps Embed -->
+          <div class="map-card">
+            <iframe 
+              src="https://maps.google.com/maps?q=Nipunge+Wasti,+Mukindapur,+Newasa,+Maharashtra+414603&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+              width="100%" 
+              height="280" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div class="map-btn-wrapper">
+              <a href="https://maps.google.com/?q=Nipunge+Wasti,+Mukindapur,+Newasa,+Maharashtra+414603" target="_blank" class="btn btn-secondary btn-sm">
+                <i class="fa-solid fa-diamond-turn-right"></i> Google Maps वर रस्ता शोधा (Directions)
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 2. SECOND HAND STORE SECTION -->
+    <section id="section-store" class="view-section">
+      <div class="store-container">
+        <div class="store-header">
+          <div>
+            <h2 class="store-title">📱 उपलब्ध सेकंड-हँड मोबाईल्स</h2>
+            <p class="store-subtitle">सर्व फोन्स टेस्ट केलेले आणि 100% चालू स्थितीत</p>
+          </div>
+          <div class="store-search-bar">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" placeholder="मॉडेल किंवा ब्रँड शोधा..." onkeyup="filterMobiles()">
+          </div>
+        </div>
+
+        <!-- Filter Tags -->
+        <div class="brand-filter-bar">
+          <button class="filter-pill active" onclick="setBrandFilter('all')">सर्व (All)</button>
+          <button class="filter-pill" onclick="setBrandFilter('Apple')">iPhone</button>
+          <button class="filter-pill" onclick="setBrandFilter('Samsung')">Samsung</button>
+          <button class="filter-pill" onclick="setBrandFilter('Vivo')">Vivo</button>
+          <button class="filter-pill" onclick="setBrandFilter('Oppo')">Oppo</button>
+          <button class="filter-pill" onclick="setBrandFilter('OnePlus')">OnePlus</button>
+          <button class="filter-pill" onclick="setBrandFilter('Motorola')">Moto</button>
+        </div>
+
+        <!-- Dynamic Product Cards Grid -->
+        <div id="mobiles-grid" class="mobiles-grid">
+          <!-- Loading Spinner placeholder -->
+          <div class="loader-box">
+            <div class="spinner"></div>
+            <p>मोबाईल्स लोड होत आहेत...</p>
+          </div>
+        </div>
+
+        <!-- Empty Stock Message -->
+        <div id="no-mobiles-msg" class="empty-state" style="display: none;">
+          <i class="fa-solid fa-box-open"></i>
+          <h3>कोणताही मोबाईल सापडला नाही!</h3>
+          <p>कृपया वेगळा शोध शब्द वापरून पहा किंवा सर्व मोबाईल्स पहा.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 3. MOBILE DETAIL VIEW (Modal / Sub-Page) -->
+    <div id="detail-modal" class="detail-modal">
+      <div class="detail-modal-overlay" onclick="closeDetailModal()"></div>
+      <div class="detail-modal-container">
+        <button class="close-modal-btn" onclick="closeDetailModal()" title="Close">&times;</button>
+        
+        <div class="detail-layout" id="detail-content">
+          <!-- Injected via JavaScript -->
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ================= FLOATING WHATSAPP BUTTON ================= -->
+  <a href="https://wa.me/919766504949?text=नमस्कार,%20मला%20Vitthal%20Mobile%20Shop%20बद्दल%20माहिती%20हवी%20आहे." 
+     target="_blank" 
+     class="floating-whatsapp" 
+     title="Chat with us on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="wa-tooltip">चॅट करा</span>
+  </a>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <p>© 2026 <strong>Vitthal Mobile Shop</strong>. All Rights Reserved.</p>
+    <p class="footer-sub">Nipunge Wasti, Mukindapur, Newasa | 📞 097665 04949</p>
+  </footer>
+
+  <!-- Firebase SDKs (Compat version for smooth standalone JS usage) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
