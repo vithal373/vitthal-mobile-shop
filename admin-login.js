@@ -8,12 +8,12 @@
 // (script.js मध्ये वापरलेलाच तोच Config येथे वापरा)
 // -------------------------------------------------------------
 const firebaseConfig = {
-  apiKey: "YOUR_FIREBASE_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyDLM3nuNhKKcOqtI2uMgcaJNPMVrfIlN48",
+  authDomain: "vitthal-mobile-shop.firebaseapp.com",
+  projectId: "vitthal-mobile-shop",
+  storageBucket: "vitthal-mobile-shop.firebasestorage.app",
+  messagingSenderId: "751867746433",
+  appId: "1:751867746433:web:8947a9df55877d2919d580"
 };
 
 // Initialize Firebase App
