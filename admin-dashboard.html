@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Vitthal Mobile Shop</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body">
+
+  <div id="authGuardLoader" class="auth-guard-screen">
+    <div class="spinner"></div>
+    <p>सुरक्षा तपासणी सुरू आहे (Verifying Admin Session)...</p>
+  </div>
+
+  <header class="navbar dash-navbar">
+    <div class="nav-container">
+      <div class="shop-brand">
+        <div class="brand-icon"><i class="fa-solid fa-gauge-high"></i></div>
+        <div class="brand-text">
+          <span class="brand-name">Vitthal Mobile</span>
+          <span class="brand-tag">Admin Dashboard</span>
+        </div>
+      </div>
+
+      <div class="dash-nav-actions">
+        <a href="index.html" target="_blank" class="btn btn-secondary btn-sm" title="Open Store Website">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> <span>वेबसाईट पहा</span>
+        </a>
+        <button onclick="handleAdminLogout()" class="btn btn-logout btn-sm">
+          <i class="fa-solid fa-right-from-bracket"></i> <span>Logout</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="dashboard-container" id="dashMainContent" style="display: none;">
+
+    <div class="dash-top-bar">
+      <div>
+        <h1 class="dash-heading">📱 सेकंड-हँड मोबाईल स्टॉक मॅनेजमेंट</h1>
+        <p class="dash-subheading">इथून तुम्ही नवीन फोन जोडू शकता किंवा विकलेले फोन हटवू शकता.</p>
+      </div>
+      <button class="btn btn-primary btn-add-mobile" onclick="openAddMobileModal()">
+        <i class="fa-solid fa-plus"></i> नवीन मोबाईल Add करा
+      </button>
+    </div>
+
+    <div id="toastAlert" class="toast-alert" style="display: none;">
+      <i class="fa-solid fa-circle-check" id="toastIcon"></i>
+      <span id="toastMsg">ऑपरेशन यशस्वी झाले!</span>
+    </div>
+
+    <div class="dash-stats-row">
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+        <div>
+          <h4 class="stat-title">एकूण उपलब्ध फोन्स</h4>
+          <p class="stat-number" id="totalMobilesCount">0</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+        <div>
+          <h4 class="stat-title">एकूण स्टॉक व्हॅल्यू (अंदाजे)</h4>
+          <p class="stat-number" id="totalStockValue">₹0</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="inventory-card">
+      <div class="inventory-header">
+        <h2 class="inventory-title">सध्या उपलब्ध मोबाईल्सची यादी</h2>
+        <div class="store-search-bar dash-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="dashSearchInput" placeholder="नाव किंवा ब्रँड शोधा..." onkeyup="filterDashMobiles()">
+        </div>
+      </div>
+
+      <div id="dashLoader" class="loader-box">
+        <div class="spinner"></div>
+        <p>स्टॉक लोड होत आहे...</p>
+      </div>
+
+      <div class="table-responsive" id="tableWrapper" style="display: none;">
+        <table class="dash-table">
+          <thead>
+            <tr>
+              <th>फोटो</th>
+              <th>मोबाईल नाव</th>
+              <th>ब्रँड</th>
+              <th>किंमत (Price)</th>
+              <th>कंडिशन</th>
+              <th>ॲक्शन</th>
+            </tr>
+          </thead>
+          <tbody id="dashMobilesTbody">
+          </tbody>
+        </table>
+      </div>
+
+      <div id="dashEmptyState" class="empty-state" style="display: none;">
+        <i class="fa-solid fa-box-open"></i>
+        <h3>सध्या कोणताही मोबाईल उपलब्ध नाही!</h3>
+        <p>नवीन मोबाईल जोडण्यासाठी वरील "+ नवीन मोबाईल Add करा" बटण दाबा.</p>
+      </div>
+    </div>
+  </main>
+
+
+  <div id="addMobileModal" class="detail-modal">
+    <div class="detail-modal-overlay" onclick="closeAddMobileModal()"></div>
+    <div class="detail-modal-container dash-modal-container">
+      <button class="close-modal-btn" onclick="closeAddMobileModal()">&times;</button>
+      
+      <div class="modal-header-block">
+        <h2><i class="fa-solid fa-mobile-screen-button"></i> नवीन मोबाईल Add करा</h2>
+        <p>सर्व माहिती काळजीपूर्वक भरा. फोटो Cloudinary वर सेव्ह होतील.</p>
+      </div>
+
+      <div id="modalErrorBox" class="auth-alert" style="display: none;">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <span id="modalErrorText">कृपया सर्व आवश्यक माहिती भरा.</span>
+      </div>
+
+      <form id="addMobileForm" onsubmit="handleSaveMobile(event)">
+        
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="mobName">मोबाईलचे नाव *</label>
+            <input type="text" id="mobName" class="form-input" placeholder="उदा. Apple iPhone 13 (128GB)" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="mobBrand">ब्रँड (Brand) *</label>
+            <select id="mobBrand" class="form-input form-select" required>
+              <option value="">-- ब्रँड निवडा --</option>
+              <option value="Apple">Apple</option>
+              <option value="Samsung">Samsung</option>
+              <option value="Vivo">Vivo</option>
+              <option value="Oppo">Oppo</option>
+              <option value="OnePlus">OnePlus</option>
+              <option value="Motorola">Motorola</option>
+              <option value="Realme">Realme</option>
+              <option value="Xiaomi">Xiaomi / Redmi</option>
+              <option value="Other">इतर (Other)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="mobPrice">विक्री किंमत (₹ Price) *</label>
+            <input type="number" id="mobPrice" class="form-input" placeholder="उदा. 34999" required min="100">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="mobCondition">कंडिशन (Condition) *</label>
+            <input type="text" id="mobCondition" class="form-input" placeholder="उदा. 9/10 (Super Clean With Box)" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="mobSpecs">स्पेसिफिकेशन्स (RAM, Storage, Battery Health, बिल, इ.) *</label>
+          <textarea id="mobSpecs" class="form-input form-textarea" rows="3" placeholder="RAM: 8GB | Storage: 128GB&#10;Battery Health: 88%&#10;Box & Original Charger Available" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="mobPhotos">मोबाईलचे फोटो निवडा (1 ते 5 फोटो) *</label>
+          <div class="file-upload-wrapper">
+            <input type="file" id="mobPhotos" class="file-input-hidden" accept="image/*" multiple onchange="handlePhotoSelection(event)">
+            <label for="mobPhotos" class="file-upload-btn">
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+              <span>फोटो निवडा (क्लिक करा)</span>
+            </label>
+          </div>
+          <div id="imagePreviewContainer" class="image-preview-strip"></div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" onclick="closeAddMobileModal()">रद्द करा</button>
+          <button type="submit" id="saveMobileBtn" class="btn btn-primary">
+            <span class="btn-text"><i class="fa-solid fa-check"></i> मोबाईल सेव्ह करा (Save Mobile)</span>
+            <div class="btn-spinner" id="saveSpinner" style="display: none;"></div>
+            <span id="uploadProgressText" style="display: none; margin-left: 8px;">अपलोड होत आहे...</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <div id="deleteModal" class="detail-modal">
+    <div class="detail-modal-overlay" onclick="closeDeleteModal()"></div>
+    <div class="detail-modal-container delete-modal-box">
+      <div class="delete-icon-wrap">
+        <i class="fa-solid fa-trash-can"></i>
+      </div>
+      <h3 class="delete-title">मोबाईल Delete करायचा आहे का?</h3>
+      <p class="delete-desc" id="deleteTargetName">हा मोबाईल डिलीट केल्यास तो ग्राहकांच्या Second Hand Store मधून कायमचा निघून जाईल.</p>
+      
+      <div class="delete-actions">
+        <button type="button" class="btn btn-secondary" onclick="closeDeleteModal()">नाही, रद्द करा</button>
+        <button type="button" id="confirmDeleteBtn" class="btn btn-danger" onclick="executeDeleteMobile()">
+          <span class="btn-text">हो, Delete करा</span>
+          <div class="btn-spinner" id="deleteSpinner" style="display: none;"></div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <script src="admin-dashboard.js"></script>
+</body>
+</html>
