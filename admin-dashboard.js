@@ -3,7 +3,7 @@
    Auth Guard, Cloudinary Unsigned Upload & Firestore CRUD
 ========================================================================= */
 
-";const firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyDLM3nuNhKKcOqtI2uMgcaJNPMVrfIlN48",
   authDomain: "vitthal-mobile-shop.firebaseapp.com",
   projectId: "vitthal-mobile-shop",
