@@ -11,6 +11,8 @@
   messagingSenderId: "751867746433",
   appId: "1:751867746433:web:8947a9df55877d2919d580"
 };
+const CLOUDINARY_CLOUD_NAME = "cwlgj1kn";
+const CLOUDINARY_UPLOAD_PRESET = "vitthal_unsigned";
 
 let auth, db;
 let dashMobilesList = [];
