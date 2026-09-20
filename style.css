@@ -1,15 +1,15 @@
 /* ================= GLOBAL VARIABLES & RESET ================= */
 :root {
-  --bg-main: #0c0f14;
-  --bg-card: #151a22;
-  --bg-card-hover: #1c232e;
-  --bg-input: #1a202c;
-  --accent: #ff4757;
-  --accent-glow: rgba(255, 71, 87, 0.35);
-  --accent-secondary: #ff6b81;
-  --text-main: #ffffff;
-  --text-muted: #9ba3af;
-  --border-color: #262f3e;
+  --bg-main: #ffffff;
+  --bg-card: #f7f8fa;
+  --bg-card-hover: #eef0f3;
+  --bg-input: #ffffff;
+  --accent: #ff6b35;
+  --accent-glow: rgba(255, 107, 53, 0.3);
+  --accent-secondary: #ff8c42;
+  --text-main: #1a1a1a;
+  --text-muted: #6b7280;
+  --border-color: #e2e5e9;
   --whatsapp-green: #25D366;
   --whatsapp-hover: #1eb956;
   --instagram-color: #E1306C;
