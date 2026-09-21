@@ -160,6 +160,55 @@
           </div>
         </div>
       </div>
+  <!-- EMI Calculator Section -->
+<div class="section-container emi-section">
+  <div class="section-header">
+    <h2 class="section-title">हप्त्यावर महिन्याला किती पडेल?</h2>
+    <p class="section-desc">फोनची किंमत आणि किती महिने ते टाका.</p>
+  </div>
+
+  <div class="emi-card">
+    <div class="form-group">
+      <label class="form-label">फोनची किंमत (₹)</label>
+      <input type="number" id="emiPrice" class="form-input" value="25000">
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">आधी द्यायची रक्कम (₹)</label>
+      <input type="number" id="emiDownPayment" class="form-input" value="5000">
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">किती महिने?</label>
+      <select id="emiMonths" class="form-input form-select">
+        <option value="3">3</option>
+        <option value="6">6</option>
+        <option value="9" selected>9</option>
+        <option value="12">12</option>
+        <option value="18">18</option>
+        <option value="24">24</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">व्याज दर (वर्षाला %)</label>
+      <input type="number" id="emiRate" class="form-input" value="12">
+    </div>
+
+    <div class="emi-result-box">
+      <div class="emi-monthly">महिन्याला <span id="emiMonthlyAmount">₹0</span></div>
+      <p class="emi-summary" id="emiSummaryText"></p>
+      <a href="https://wa.me/919766504949?text=नमस्कार,%20मला%20EMI%20ऑफर्सबद्दल%20माहिती%20हवी%20आहे." target="_blank" class="btn btn-whatsapp-card emi-whatsapp-btn">
+        <i class="fa-brands fa-whatsapp"></i> EMI ऑफर्स विचारा
+      </a>
+    </div>
+
+    <div class="emi-disclaimer">
+      <i class="fa-solid fa-circle-info"></i>
+      व्याज दर बँक किंवा फायनान्स कंपनीनुसार बदलतो. अचूक हप्ता दुकानात मिळेल.
+    </div>
+  </div>
+</div>
     </section>
 
 
