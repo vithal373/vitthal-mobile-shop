@@ -305,3 +305,35 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
   fetchMobiles();
 });
+// -------------------------------------------------------------
+// 9. EMI CALCULATOR
+// -------------------------------------------------------------
+function calculateEMI() {
+  const price = parseFloat(document.getElementById('emiPrice').value) || 0;
+  const downPayment = parseFloat(document.getElementById('emiDownPayment').value) || 0;
+  const months = parseInt(document.getElementById('emiMonths').value) || 1;
+  const annualRate = parseFloat(document.getElementById('emiRate').value) || 0;
+
+  const principal = price - downPayment;
+  const monthlyRate = annualRate / 12 / 100;
+
+  let emi;
+  if (monthlyRate === 0) {
+    emi = principal / months;
+  } else {
+    emi = (principal * monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
+  }
+
+  const totalPayment = (emi * months) + downPayment;
+
+  document.getElementById('emiMonthlyAmount').innerText = '₹' + Math.round(emi).toLocaleString('en-IN');
+  document.getElementById('emiSummaryText').innerText = 
+    `${months} महिने, एकूण ₹${Math.round(totalPayment).toLocaleString('en-IN')} (आधीची रक्कम धरून)`;
+}
+
+['emiPrice', 'emiDownPayment', 'emiMonths', 'emiRate'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('input', calculateEMI);
+});
+
+document.addEventListener('DOMContentLoaded', calculateEMI);
